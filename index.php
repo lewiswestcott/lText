@@ -41,15 +41,32 @@
 
     <section class="container p-4 mt-4 rounded shadow-lg" id="content">
         <form id="submitText">
-            <label for="txtInput" class="form-label">Example textarea</label>
+            <label for="txtInput" class="form-label">New text save:</label>
             <textarea class="form-control" id="txtInput" rows="3"></textarea>
             <hr>
+
+            <div class="mb-2">
             <label for="txtInput" class="form-label">Paste visibility</label>
             <select class="form-select" id="cmbTextType">
-                <option selected>Paste visibility</option>
+                <option selected>Select</option>
                 <option value="Public">Public</option>
                 <option value="Private">Private</option>
             </select>
+            </div>
+
+            <div class="mb-2">
+            <label for="txtInput" class="form-label">Text Expiration:</label>
+            <select class="form-select" id="cmbTextType">
+                <option selected>Time</option>
+                <option value="none">Never</option>
+                <option value="3600">1 Hour</option>
+                <option value="7200">2 Hour</option>
+                <option value="10800">3 Hour</option>
+
+
+            </select>
+            </div>
+
         </form>
 
 
