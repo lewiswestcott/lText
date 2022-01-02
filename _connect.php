@@ -9,7 +9,7 @@
 
     if (!$connect)
     {
-        echo "Unable to connect to the database.";
+        echo ("Unable to connect to the database.");
     }
 
 ?>

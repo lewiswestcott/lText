@@ -5,6 +5,8 @@
 
     $textUUID = strip_tags($_GET['textUUID']);
 
+    require("_connect.php");
+
 ?>
 
 
