@@ -41,7 +41,7 @@
             <hr>
 
             <div class="mb-2">
-            <label for="txtInput" class="form-label">Paste visibility</label>
+            <label for="cmbPrivacy" class="form-label">Paste visibility</label>
             <select class="form-select" id="cmbTextType">
                 <option selected>Select</option>
                 <option value="Public">Public</option>
@@ -50,17 +50,26 @@
             </div>
 
             <div class="mb-2">
-            <label for="txtInput" class="form-label">Text Expiration:</label>
+            <label for="cmbSeconds" class="form-label">Text Expiration:</label>
             <select class="form-select" id="cmbTextType">
                 <option selected>Time</option>
                 <option value="none">Never</option>
                 <option value="3600">1 Hour</option>
                 <option value="7200">2 Hour</option>
                 <option value="10800">3 Hour</option>
+            </select>
+            </div>
 
+            <div class="mb-2">
+            <label for="cmbHighlighting" class="form-label">Highlighting:</label>
+            <select class="form-select" id="cmbHighlighting">
+                <option selected>Select</option>
+                <option value="Public">none</option>
 
             </select>
             </div>
+
+            <button class="btn btn-dark p-2 mt-3 rounded shadow-lg">Submit</button>
 
         </form>
 
