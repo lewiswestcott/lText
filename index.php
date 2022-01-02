@@ -36,45 +36,48 @@
 
     <section class="container p-4 mt-4 rounded shadow-lg" id="content">
         <div class="row">
-            <form id="submitText">
-                <label for="txtInput" class="form-label">New text save:</label>
-                <textarea class="form-control" id="txtInput" rows="3"></textarea>
-                <hr>
+            <div class="col-9">
+                <form id="submitText">
+                    <label for="txtInput" class="form-label">New text save:</label>
+                    <textarea class="form-control" id="txtInput" rows="3"></textarea>
+                    <hr>
 
-                <div class="mb-2">
-                    <label for="cmbPrivacy" class="form-label">Paste visibility</label>
-                    <select class="form-select" id="cmbTextType">
-                        <option selected>Select</option>
-                        <option value="Public">Public</option>
-                        <option value="Private">Private</option>
-                    </select>
-                </div>
+                    <div class="mb-2">
+                        <label for="cmbPrivacy" class="form-label">Paste visibility</label>
+                        <select class="form-select" id="cmbTextType">
+                            <option selected>Select</option>
+                            <option value="Public">Public</option>
+                            <option value="Private">Private</option>
+                        </select>
+                    </div>
 
-                <div class="mb-2">
-                    <label for="cmbSeconds" class="form-label">Text Expiration:</label>
-                    <select class="form-select" id="cmbTextType">
-                        <option selected>Time</option>
-                        <option value="none">Never</option>
-                        <option value="3600">1 Hour</option>
-                        <option value="7200">2 Hour</option>
-                        <option value="10800">3 Hour</option>
-                    </select>
-                </div>
+                    <div class="mb-2">
+                        <label for="cmbSeconds" class="form-label">Text Expiration:</label>
+                        <select class="form-select" id="cmbTextType">
+                            <option selected>Time</option>
+                            <option value="none">Never</option>
+                            <option value="3600">1 Hour</option>
+                            <option value="7200">2 Hour</option>
+                            <option value="10800">3 Hour</option>
+                        </select>
+                    </div>
 
-                <div class="mb-2">
-                    <label for="cmbHighlighting" class="form-label">Highlighting:</label>
-                    <select class="form-select" id="cmbHighlighting">
-                        <option selected>Select</option>
-                        <option value="Public">none</option>
+                    <div class="mb-2">
+                        <label for="cmbHighlighting" class="form-label">Highlighting:</label>
+                        <select class="form-select" id="cmbHighlighting">
+                            <option selected>Select</option>
+                            <option value="Public">none</option>
 
-                    </select>
-                </div>
+                        </select>
+                    </div>
 
-                <hr>
+                    <hr>
 
-                <button class="btn btn-dark p-2 mt-3 rounded shadow-lg" type="submit">Submit Text Save</button>
+                    <button class="btn btn-dark p-2 mt-3 rounded shadow-lg" type="submit">Submit Text Save</button>
 
-            </form>
+                </form>
+            </div>
+
             <div class="col-3">
                 <h3>Public Text Saves</h3>
                 <ul>
