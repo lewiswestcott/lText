@@ -7,6 +7,24 @@
 
     require("_connect.php");
 
+    $SQL = "SELECT * FROM `texts` WHERE `textUUID` = ?";
+    $stmt = mysqli_prepare($connect, $SQL);
+    mysqli_stmt_bind_param($stmt, 's', $username);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    if ($result->num_rows !== 1)
+    {
+        die("Invalid");
+    }
+
+    $TEXT = $result->fetch_array(MYSQLI_ASSOC);
+
+    $stmt->close();
+
+    echo mb_strlen($string, '8bit');
 ?>
 
 
@@ -21,6 +39,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/homepage.css">
+    <link rel="stylesheet" href="../css/vs2015.min.css"> 
 </head>
 
 <body class="bg-dark">
@@ -50,9 +69,21 @@
         <div class="row">
             <div class="col-9">
                 <div class="title border-bottom">
-                    <h3><?= $textUUID ?></h3>
+                    <h3 class="mb-1"><?= $textUUID ?></h3>
                     <p>Time | 0.00Kb</p>
                 </div>
+
+                <pre><code class="language-html"><?= $TEXT['data']?></code></pre>
+            </div>
+            <div class="col-3">
+                <h3>Public saves</h3>
+                <ul>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
 
@@ -62,6 +93,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
     </script>
+    <script src="./js/highlight.min.js"></script>
 </body>
 
 </html>
