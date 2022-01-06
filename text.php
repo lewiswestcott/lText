@@ -47,7 +47,9 @@
 
 <body class="bg-dark">
     <style>
-        body {background: url('https://i.ibb.co/cJVwf84/bg-img.jpg') no-repeat center center fixed;}
+        body {
+            background: url('https://i.ibb.co/cJVwf84/bg-img.jpg') no-repeat center center fixed;
+        }
     </style>
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <div class="container">
@@ -76,7 +78,8 @@
             <div class="col-9">
                 <div class="title border-bottom">
                     <h3 class="mb-1"><?= $textUUID ?></h3>
-                    <p><?= timeElapsedString($TEXT['TIMESTAMP']) ?> | <?= humanFileSize(mb_strlen($TEXT['data']))  ?> </p>
+                    <p><?= timeElapsedString($TEXT['TIMESTAMP']) ?> | <?= humanFileSize(mb_strlen($TEXT['data']))  ?>
+                    </p>
                 </div>
 
                 <pre><code class="language-html"><?= htmlspecialchars($TEXT['data']) ?></code></pre>
@@ -85,9 +88,16 @@
                 <h3>Public saves</h3>
                 <ul>
                     <?php
-                        while ($textSave = getPublicSaves())
+                        $SQL="SELECT * FROM `texts` WHERE `vibibility` = `0` ORDER BY `texts`.`TIMESTAMP` DESC LIMIT 10";
+
+                        $query = mysqli_query($connect, $SQL);
+                
+                        if (mysqli_num_rows($query) !=0)
                         {
-                            echo '<li>' . $textSave['textUUID'] . '</li>';
+                            while ($textSave =mysqli_fetch_assoc($query))
+                            {
+                                echo '<li>' . $textSave['textUUID'] . '</li>';
+                            }
                         }
 
                     ?>
@@ -103,7 +113,9 @@
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
     </script>
     <script src="../js/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <script>
+        hljs.highlightAll();
+    </script>
 
 </body>
 
