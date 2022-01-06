@@ -82,11 +82,10 @@
             <div class="col-9">
                 <div class="title border-bottom">
                     <h3 class="mb-1"><?= $textUUID ?></h3>
-                    <p>Time | <?= humanFileSize(mb_strlen($TEXT['data']))  ?> </p>
-                    <?= var_dump($TEXT["data"]);?>
+                    <p>Time | <?php echo(humanFileSize(mb_strlen($TEXT['data'])));  ?> </p>
                 </div>
 
-                <pre><code class="language-html"><?= htmlentitles($TEXT['data']) ?></code></pre>
+                <pre><code class="language-html"><?php echo htmlentitles($TEXT['data']) ?></code></pre>
             </div>
             <div class="col-3">
                 <h3>Public saves</h3>
