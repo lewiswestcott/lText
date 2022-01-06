@@ -40,7 +40,7 @@ require("_connect.php");
         </div>
     </nav>
 
-    <section class="container p-4 mt-4 rounded shadow-lg" id="content">
+    <section class="container p-4 mt-4 rounded shadow-lg text-light" id="content">
         <div class="row">
             <div class="col-9">
                 <form id="submitText">
