@@ -9,7 +9,7 @@
 
     $SQL = "SELECT * FROM `texts` WHERE `textUUID` = ?";
     $stmt = mysqli_prepare($connect, $SQL);
-    mysqli_stmt_bind_param($stmt, 's', $username);
+    mysqli_stmt_bind_param($stmt, 's', $textUUID);
 
     $stmt->execute();
 
@@ -73,7 +73,7 @@
                     <p>Time | 0.00Kb</p>
                 </div>
 
-                <pre><code class="language-html"><?= $TEXT['data']?></code></pre>
+                <pre><code class="language-html"><?= htmlentitles($TEXT['data']) ?></code></pre>
             </div>
             <div class="col-3">
                 <h3>Public saves</h3>
