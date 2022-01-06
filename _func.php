@@ -53,6 +53,14 @@ function humanFileSize($size,$unit="")
     return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($IDData), 4));
   }
 
+function getLangs() {
+  return array(
+    "txt" => "Plain Text",
+    "csharp" => "C#",
+    "cpp" => "C++"
+  );
+}
+
 function GetIP()
 {
   if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
