@@ -14,6 +14,7 @@
     $stmt->execute();
 
     $result = $stmt->get_result();
+    return var_dump($result);
 
     if ($result->num_rows !== 1)
     {
