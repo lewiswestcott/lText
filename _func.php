@@ -43,7 +43,7 @@ function humanFileSize($size,$unit="")
     }
 
     
-  }
+  //}
 
   function GenerateID() {
     $IDData = $IDData ?? random_bytes(16);
@@ -51,18 +51,19 @@ function humanFileSize($size,$unit="")
     $IDData[6] = chr(ord($IDData[6]) & 0x0f | 0x40);
     $IDData[8] = chr(ord($IDData[8]) & 0x3f | 0x80);
     return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($IDData), 4));
+  }
 
 function GetIP()
 {
   if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['HTTP_CLIENT_IP'];
-} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-} else {
-    $ip = $_SERVER['REMOTE_ADDR'];
-}
+  } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+      $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+  } else {
+      $ip = $_SERVER['REMOTE_ADDR'];
+  }
 
-return $ip;
+  return $ip;
 }
 
 
