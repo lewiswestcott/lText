@@ -81,9 +81,20 @@
             <div class="col-3">
                 <h3>Public Text Saves</h3>
                 <ul>
-                    <li>Public Save 1</li>
-                    <li>Public Save 2</li>
-                    <li>Public Save 3</li>
+                    <?php
+                        $SQL= "SELECT * FROM `texts` WHERE `visibility` = '0' ORDER BY `texts`.`TIMESTAMP` DESC LIMIT 10";
+
+                        $query = mysqli_query($connect, $SQL);
+                
+                        if (mysqli_num_rows($query) !=0)
+                        {
+                            while ($textSave = mysqli_fetch_assoc($query))
+                            {
+                                echo '<li><a href="./' . $textSave['textUUID'] . '">' .$textSave['textUUID'] .  '</a></li>';
+                            }
+                        }
+
+                    ?>
                 </ul>
             </div>
         </div>
