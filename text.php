@@ -85,7 +85,7 @@
                     <p>Time | <?= humanFileSize(mb_strlen($TEXT['data']))  ?> </p>
                 </div>
 
-                <pre><code class="language-html"><?= htmlentitles($TEXT['data'], '8bit') ?></code></pre>
+                <pre><code class="language-html"><?= htmlentitles($result['data']) ?></code></pre>
             </div>
             <div class="col-3">
                 <h3>Public saves</h3>
