@@ -69,10 +69,17 @@ require("_connect.php");
                     </div>
 
                     <div class="mb-2">
-                        <label for="cmbHighlighting" class="form-label">Highlighting:</label>
-                        <select class="form-select" id="cmbHighlighting" name="cmbHighlighting">
-                            <option selected>Select</option>
-                            <option value="Public">none</option>
+                        <label for="cmbHighlight" class="form-label">Highlight:</label>
+                        <select class="form-select" id="cmbHighlight" name="cmbHighlight">
+                            <option value="txt">None</option>
+                            <?php
+
+                                foreach (getLangs() as $key => $value)
+                                {
+                                    echo '<option value="' . $key . '">' . strip_tags($value) . '</option>';
+                                }
+
+                            ?>
 
                         </select>
                     </div>
