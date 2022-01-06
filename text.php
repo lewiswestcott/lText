@@ -46,6 +46,9 @@
 </head>
 
 <body class="bg-dark">
+    <style>
+        body {background: url('https://i.ibb.co/cJVwf84/bg-img.jpg') no-repeat center center fixed;}
+    </style>
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <div class="container">
 
