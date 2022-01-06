@@ -88,13 +88,13 @@
                 <h3>Public saves</h3>
                 <ul>
                     <?php
-                        $SQL="SELECT * FROM `texts` WHERE `visibility` = `0` ORDER BY `texts`.`TIMESTAMP` DESC LIMIT 10";
+                        $SQL= "SELECT * FROM `texts` WHERE `visibility` = '0' ORDER BY `texts`.`TIMESTAMP` DESC LIMIT 10";
 
                         $query = mysqli_query($connect, $SQL);
                 
                         if (mysqli_num_rows($query) !=0)
                         {
-                            while ($textSave =mysqli_fetch_assoc($query))
+                            while ($textSave = mysqli_fetch_assoc($query))
                             {
                                 echo '<li>' . $textSave['textUUID'] . '</li>';
                             }
