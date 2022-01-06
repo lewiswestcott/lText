@@ -44,13 +44,13 @@ require("_connect.php");
         <div class="row">
             <div class="col-9">
                 <form id="submitText">
-                    <label for="txtInput" class="form-label">New text save:</label>
-                    <textarea class="form-control" id="txtInput" rows="3"></textarea>
+                    <label for="txtInput" class="form-label">New Text Save:</label>
+                    <textarea class="form-control" id="txtInput" name="txtInput" rows="5" required></textarea>
                     <hr>
 
                     <div class="mb-2">
                         <label for="cmbPrivacy" class="form-label">Paste visibility</label>
-                        <select class="form-select" id="cmbTextType">
+                        <select class="form-select" id="cmbTextType" name="cmbTextType">
                             <option selected>Select</option>
                             <option value="Public">Public</option>
                             <option value="Private">Private</option>
@@ -59,7 +59,7 @@ require("_connect.php");
 
                     <div class="mb-2">
                         <label for="cmbSeconds" class="form-label">Text Expiration:</label>
-                        <select class="form-select" id="cmbTextType">
+                        <select class="form-select" id="cmbTextExpiration" name="cmbTextExpiration">
                             <option selected>Time</option>
                             <option value="none">Never</option>
                             <option value="3600">1 Hour</option>
@@ -70,7 +70,7 @@ require("_connect.php");
 
                     <div class="mb-2">
                         <label for="cmbHighlighting" class="form-label">Highlighting:</label>
-                        <select class="form-select" id="cmbHighlighting">
+                        <select class="form-select" id="cmbHighlighting" name="cmbHighlighting">
                             <option selected>Select</option>
                             <option value="Public">none</option>
 
