@@ -42,14 +42,14 @@ function humanFileSize($size,$unit="")
         return $string ? implode(', ', $string) . ' ago' : 'just now';
     }
 
-    funtion getPublicSaves()
-    {
-        require("_connect.php");
+    // funtion getPublicSaves()
+    // {
+    //     require("_connect.php");
 
         
 
-        return [];
-    }
+    //     return [];
+    // }
 
 
 ?>
