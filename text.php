@@ -11,6 +11,37 @@
     return number_format($size)." bytes";
     }
 
+    date_default_timezone_set('Europe/London');
+
+    function timeElapsedString($datetime, $full = false) {
+        $now = new DateTime;
+        $ago = new DateTime($datetime);
+        $diff = $now->diff($ago);
+    
+        $diff->w = floor($diff->d / 7);
+        $diff->d -= $diff->w * 7;
+    
+        $string = array(
+            'y' => 'year',
+            'm' => 'month',
+            'w' => 'week',
+            'd' => 'day',
+            'h' => 'hour',
+            'i' => 'minute',
+            's' => 'second',
+        );
+        foreach ($string as $k => &$v) {
+            if ($diff->$k) {
+                $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+            } else {
+                unset($string[$k]);
+            }
+        }
+    
+        if (!$full) $string = array_slice($string, 0, 1);
+        return $string ? implode(', ', $string) . ' ago' : 'just now';
+    }
+
     if (!isset($_GET['textUUID']))
         header("Location: ../");
 
@@ -82,7 +113,7 @@
             <div class="col-9">
                 <div class="title border-bottom">
                     <h3 class="mb-1"><?= $textUUID ?></h3>
-                    <p>Time | <?= humanFileSize(mb_strlen($TEXT['data']))  ?> </p>
+                    <p><?= timeElapsedString($TEXT['TIMESTAMP']) ?> | <?= humanFileSize(mb_strlen($TEXT['data']))  ?> </p>
                 </div>
 
                 <pre><code class="language-html"><?= htmlspecialchars($TEXT['data']) ?></code></pre>
