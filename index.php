@@ -96,7 +96,7 @@ require("_connect.php");
                         {
                             while ($textSave = mysqli_fetch_assoc($query))
                             {
-                                echo '<li><a href="./' . $textSave['textUUID'] . '">' .$textSave['textUUID'] .  '</a></li>';
+                                echo '<li><a href="./text/' . $textSave['textUUID'] . '">' .$textSave['textUUID'] .  '</a></li>';
                             }
                         }
 
