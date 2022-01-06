@@ -88,7 +88,7 @@
                 <h3>Public saves</h3>
                 <ul>
                     <?php
-                        $SQL="SELECT * FROM `texts` WHERE `vibibility` = `0` ORDER BY `texts`.`TIMESTAMP` DESC LIMIT 10";
+                        $SQL="SELECT * FROM `texts` WHERE `visibility` = `0` ORDER BY `texts`.`TIMESTAMP` DESC LIMIT 10";
 
                         $query = mysqli_query($connect, $SQL);
                 
