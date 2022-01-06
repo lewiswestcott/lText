@@ -84,9 +84,13 @@
             <div class="col-3">
                 <h3>Public saves</h3>
                 <ul>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
+                    <?php
+                        while ($textSave = getPublicSaves())
+                        {
+                            echo '<li>' . $textSave['textUUID'] . '</li>';
+                        }
+
+                    ?>
                 </ul>
             </div>
         </div>
