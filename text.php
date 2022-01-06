@@ -24,7 +24,7 @@
 
     $stmt->close();
 
-    echo mb_strlen($string, '8bit');
+    //echo mb_strlen("test string", '8bit');
 ?>
 
 
