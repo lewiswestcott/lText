@@ -1,5 +1,16 @@
 <?php
 
+    function humanFileSize($size,$unit="") 
+    {
+    if( (!$unit && $size >= 1<<30) || $unit == "GB")
+      return number_format($size/(1<<30),2)."GB";
+    if( (!$unit && $size >= 1<<20) || $unit == "MB")
+      return number_format($size/(1<<20),2)."MB";
+    if( (!$unit && $size >= 1<<10) || $unit == "KB")
+      return number_format($size/(1<<10),2)."KB";
+    return number_format($size)." bytes";
+    }
+
     if (!isset($_GET['textUUID']))
         header("Location: ../");
 
@@ -40,7 +51,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/homepage.css">
-    <link rel="stylesheet" href="../css/vs2015.min.css"> 
+    <link rel="stylesheet" href="../css/vs2015.min.css">
 </head>
 
 <body class="bg-dark">
@@ -71,10 +82,10 @@
             <div class="col-9">
                 <div class="title border-bottom">
                     <h3 class="mb-1"><?= $textUUID ?></h3>
-                    <p>Time | 0.00Kb</p>
+                    <p>Time | <?= humanFileSize(mb_strlen($TEXT['data']))  ?> </p>
                 </div>
 
-                <pre><code class="language-html"><?= htmlentitles($TEXT['data']) ?></code></pre>
+                <pre><code class="language-html"><?= htmlentitles($TEXT['data'], '8bit')) ?></code></pre>
             </div>
             <div class="col-3">
                 <h3>Public saves</h3>
