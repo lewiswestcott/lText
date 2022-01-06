@@ -1,3 +1,9 @@
+<?php
+
+require(_connect.php);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
