@@ -96,7 +96,7 @@
                         {
                             while ($textSave = mysqli_fetch_assoc($query))
                             {
-                                echo '<li>' . $textSave['textUUID'] . '</li>';
+                                echo '<li><a href="./' . $textSave['textUUID'] . '">' .$textSave['textUUID'] .  '</a></li>';
                             }
                         }
 
