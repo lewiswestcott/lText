@@ -1,5 +1,5 @@
 <?php
-    if (isset($_POST['txtInput']) && (isset($_POST['cmbTextType']) && (isset($_POST['cmbTextExpiration']) && (isset($_POST['cmbTexthHighlight']))
+    if (isset($_POST['txtInput']) && isset($_POST['cmbTextType']) && isset($_POST['cmbTextExpiration']) && isset($_POST['cmbHighlight']))
     {
         require("_func.php");
         require("_connect.php");
@@ -7,13 +7,13 @@
         $input = $_POST['txtInput'];
         $cmbTextType = $_POST['cmbTextType'];
         $cmbTextExpiration = $_POST['cmbTextExpiration'];
-        $cmbTextHighlight = $_POST['cmbTextHighlight'];
+        $cmbTextHighlight = $_POST['cmbHighlight'];
 
         if (strlen($input) <= 0)
             die("Invalid text length");
 
-        if ($cmbTextType != "public" || $cmbTextType !="private")
-            die("Invalid text type.");
+        // if ($cmbTextType != "Public" || $cmbTextType !="Private")
+        //     die("Invalid text type.");
 
         if ($cmbTextExpiration == "none")
             $cmbTextExpiration = -1;
@@ -21,8 +21,8 @@
         if (!is_int($cmbTextExpiration))
             die("Invalid Text Expiration");
 
-        if (!in_array($cmbTextExpiration, getLangs()))
-            die("Invalid Syntax");
+        // if (!in_array($cmbTextExpiration, getLangs()))
+        //     die("Invalid Syntax");
 
         $textUUID = GenerateID();
 
@@ -31,7 +31,8 @@
         $SQL = "INSERT INTO `texts` (`textUUID`, `data`, `visibility`, `expiration`, `IP`, `syntax`, `TIMESTAMP`) VALUES (?, ?, ?, ?, ?, ?, current_timestamp())";
         
         $stmt = mysqli_prepare($connect, $SQL);
-        mysqli_stmt_bind_param($stmt, 'ssssss', $textUUID, $input, ($cmbTextType == "public" ? 0 : 1), $cmbTextExpiration, $IP, $cmbTextHighlight );
+        $type = ($cmbTextType == "public" ? 1 : 0);
+        mysqli_stmt_bind_param($stmt, 'ssssss', $textUUID, $input, $type, $cmbTextExpiration, $IP, $cmbTextHighlight );
 
         if ($stmt->execute())
             die("true");
